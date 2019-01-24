@@ -1,0 +1,16 @@
+﻿@model ViewModel
+@{
+    ViewBag.Title = "Index";
+}
+
+
+    @foreach (var item in Model.uers)
+    {
+        <h1> @item.Id</h1>
+        <h1> @item.Name</h1>
+
+        <h1> @item.Country</h1>
+
+    }
+
+
