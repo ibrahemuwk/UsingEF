@@ -32,9 +32,8 @@ namespace UsingEF.Controllers
             //        Country = "W"
             //    }
             //};
-            _context.Users.Add(new User() {Name = "Mostafa Hosny", Country = "Tunas"});
-            _context.Users.Add(new User() { Name = "Ahmed Zaki", Country = "Menoufa" });
-            _context.SaveChanges();
+            
+
             var users = _context.Users.ToList();
 
             var user =new ViewModel()
@@ -42,6 +41,18 @@ namespace UsingEF.Controllers
                 uers = users
             };
             return View(user);
+        }
+
+        public ActionResult New()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Create(User user)
+        {
+            _context.Users.Add(user);
+            _context.SaveChanges();
+;            return RedirectToAction("Index");
         }
     }
 }
